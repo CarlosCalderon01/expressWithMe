@@ -1,40 +1,24 @@
-/*
-    Creando un servidor de node sin express
-*/
-
-// const http = require('node:http')
-// const fs = require('node:fs')
-
-// const server = http.createServer((req, res) => {
-//   const read = fs.createReadStream('.//static/index.html')
-//   read.pipe(res)
-// })
-
-// server.listen(3000)
-// console.log(`Server on port ${3000}`)
-
-/*
-    Creando un servidor de node con express
-*/
-
 const express = require('express')
-
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('helllo world')
+app.get('/products', (req, res) => {
+  res.send('Get list Products')
 })
 
-app.get('/about', (req, res) => {
-  res.send('about')
+app.post('/products', (req, res) => {
+  res.send('post list Products')
 })
 
-app.get('/weather', (req, res) => {
-  res.send('weather xd')
+app.put('/products', (req, res) => {
+  res.send('put list Products')
 })
 
-app.use((req, res) => {
-  res.status(404).send('no se encontro tu pagina')
+app.delete('/products', (req, res) => {
+  res.send('delete list Products')
+})
+
+app.patch('/products', (req, res) => {
+  res.send('patch list Products')
 })
 
 app.listen(3000)
