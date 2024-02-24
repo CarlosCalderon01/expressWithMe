@@ -22,9 +22,19 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.sendFile('./static/index.html', {
-    root: __dirname
-  })
+  res.send('helllo world')
+})
+
+app.get('/about', (req, res) => {
+  res.send('about')
+})
+
+app.get('/weather', (req, res) => {
+  res.send('weather xd')
+})
+
+app.use((req, res) => {
+  res.status(404).send('no se encontro tu pagina')
 })
 
 app.listen(3000)
