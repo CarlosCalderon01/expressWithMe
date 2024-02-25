@@ -1,35 +1,47 @@
 const express = require('express')
 const app = express()
 
-app.get('/products', (req, res) => {
-  res.send('Get list Products')
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+// REQUEST BODY
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+
+// Agrega middleware para parsear el cuerpo de la solicitud como JSON
+app.use(express.json())
+app.use(express.text())
+app.use(express.urlencoded({ extended: false })) // can Lisening {Body form-encode}
+
+app.get('/', (req, res) => {
+  res.send('Page Home!')
 })
 
-// enviado imagenes
-app.get('/imgwalpaper', (req, res) => {
-  res.sendFile('./static/img1.jpg', {
-    root: __dirname
-  })
-})
-
-// enviado json
 app.get('/user', (req, res) => {
-  res.json({
-    name: 'carlitos',
-    lastname: 'calangas',
-    age: 30,
-    points: [1, 2, 3, 4],
-    adress: {
-      city: 'New York',
-      state: 'asdasd'
-    }
-  })
+  res.send('Get list User')
 })
 
-// comprobar estado servidor
-app.get('/isAlive', (req, res) => {
-  res.sendStatus(200)
+// Utiliza express.json() para manejar el cuerpo de la solicitud JSON
+app.post('/user', (req, res) => {
+  res.send('Create New User')
+  console.log(req.body) // req.body ahora contendrá el cuerpo de la solicitud JSON
 })
 
-app.listen(3000)
-console.log(`Server on port ${3000}`)
+// EXAMPLE
+/*
+            Request
+            -->
+            <--
+  - url(endpoint) --> /user
+  - header        --> json
+  - json          --> {}
+
+*/
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+// REQUEST BODY
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+// TESTING SERVER
+// ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+app.listen(3000, () => {
+  console.log('Server running on port 3000')
+})
+// console.log(`Server on port ${3000}`)
