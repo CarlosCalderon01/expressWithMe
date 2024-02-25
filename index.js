@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// REQUEST BODY
+// REQUEST PARAMS
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 
 // Agrega middleware para parsear el cuerpo de la solicitud como JSON
@@ -15,27 +15,42 @@ app.get('/', (req, res) => {
 })
 
 app.get('/user', (req, res) => {
-  res.send('Get list User')
+  res.send('Page User!')
 })
 
-// Utiliza express.json() para manejar el cuerpo de la solicitud JSON
-app.post('/user', (req, res) => {
-  res.send('Create New User')
-  console.log(req.body) // req.body ahora contendrá el cuerpo de la solicitud JSON
+// extraer un parametro desde la url
+// primero extrae el valor, luego lo concatena y manda
+app.get('/user/:username', (req, res) => {
+  console.log(typeof req.params.username)
+  res.send(`hello ${req.params.username.toLocaleUpperCase}`)
 })
 
-// EXAMPLE
-/*
-            Request
-            -->
-            <--
-  - url(endpoint) --> /user
-  - header        --> json
-  - json          --> {}
+// app.get('/add/:x/:y', ({params: {x, y}}, res) => {
+app.get('/add/:x/:y', (req, res) => {
+  // desectructurador de javascript
+  const { x, y } = req.params
+  // const result = parseInt(req.params.x) + parseInt(req.params.y)
+  // const result = parseInt(x) + parseInt(y)
+  // res.send(`Resultado: ${result}`)
+  res.send(`Resultado: ${parseInt(x) + parseInt(y)}`)
+})
 
-*/
+app.get('/users/:username/photo', (req, res) => {
+  if (req.params.username === 'carl') {
+    return res.sendFile('./static/img1.jpg', {
+      root: __dirname
+    })
+  }
+  res.send('el usuario no tiene acceso')
+})
+
+app.get('/nombre/:nombre/age/:age', (req, res) => {
+  const { nombre, age } = req.params
+  res.send(`El usuario ${nombre} tienen ${age} años`)
+})
+
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// REQUEST BODY
+// REQUEST PARAMS
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
