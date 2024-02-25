@@ -5,20 +5,30 @@ app.get('/products', (req, res) => {
   res.send('Get list Products')
 })
 
-app.post('/products', (req, res) => {
-  res.send('post list Products')
+// enviado imagenes
+app.get('/imgwalpaper', (req, res) => {
+  res.sendFile('./static/img1.jpg', {
+    root: __dirname
+  })
 })
 
-app.put('/products', (req, res) => {
-  res.send('put list Products')
+// enviado json
+app.get('/user', (req, res) => {
+  res.json({
+    name: 'carlitos',
+    lastname: 'calangas',
+    age: 30,
+    points: [1, 2, 3, 4],
+    adress: {
+      city: 'New York',
+      state: 'asdasd'
+    }
+  })
 })
 
-app.delete('/products', (req, res) => {
-  res.send('delete list Products')
-})
-
-app.patch('/products', (req, res) => {
-  res.send('patch list Products')
+// comprobar estado servidor
+app.get('/isAlive', (req, res) => {
+  res.sendStatus(200)
 })
 
 app.listen(3000)
