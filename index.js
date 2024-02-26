@@ -2,27 +2,31 @@ const express = require('express')
 const app = express()
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// REQUEST PARAMS
+// Middlewares
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
+
+/*
+  - un middleware es un software que actúa como un intermediario entre dos aplicaciones, sistemas o componentes de software.
+  - En el caso de Express.js, los middlewares son funciones que se ejecutan en el medio (middleware) del ciclo de solicitud y respuesta.
+*/
+
+// todas las rutas tienen que pasar por esta funcion. esto es un middlewaves
+app.use((req, res, next) => {
+  console.log(`Route: ${req.url} Method: ${req.method}`)
+  next()
+})
 
 app.get('/', (req, res) => {
   res.send('Page Home!')
 })
 
-// reading query
-// http://localhost:3000/search
-// http://localhost:3000/search?q=javascript%20books
-// http://localhost:3000/search?user=carl&user=brayan&user=marcus
-app.get('/search', (req, res) => {
-  console.log(req.query)
-  if (req.query.q === 'javascript books') {
-    res.send('lista de libros de javascript')
-  } else {
-    res.send('pagina normal')
-  }
+// use Method all
+app.all('/profile', (req, res) => {
+  res.send('profile page')
 })
+
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// REQUEST PARAMS
+// Middlewares
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
