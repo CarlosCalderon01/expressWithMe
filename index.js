@@ -1,14 +1,26 @@
 const express = require('express')
-const app = express()
+const morgan = require('morgan')
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// Introduccion a Middlewares
+// Middlewares Interceptor
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 
 /*
   - un middleware es un software que actúa como un intermediario entre dos aplicaciones, sistemas o componentes de software.
   - En el caso de Express.js, los middlewares son funciones que se ejecutan en el medio (middleware) del ciclo de solicitud y respuesta.
+  - un middlewaves siempre tiene un next()
 */
+const app = express()
+app.use(morgan('dev'))
+
+app.get('/', (req, res) => {
+  res.send('Page Home!')
+})
+
+// use Method all
+app.all('/profile', (req, res) => {
+  res.send('profile page')
+})
 
 // Ejemplo Middlewaves LOGGER --> all rutas
 app.use((req, res, next) => {
@@ -25,22 +37,13 @@ app.use((req, res, next) => { // Aplica para todas las rutas de aqui hacia abajo
   }
 })
 
-app.get('/', (req, res) => {
-  res.send('Page Home!')
-})
-
 // PAGE - DASHBOARD
 app.get('/dashboard', (req, res) => {
   res.send('PAGE - DASHBOARD')
 })
 
-// use Method all
-app.all('/profile', (req, res) => {
-  res.send('profile page')
-})
-
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// Introduccion a Middlewares
+// Middlewares Interceptor
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //

@@ -10,6 +10,12 @@ Instalar ESLINT:
     or
     npm init @eslint/config
 
+Instalacion de dependencias:
+    Dev:
+    - 
+    producction:
+
+
 Bibliografia:
 
     https://github.com/CarlosCalderon01/MyAppLB
