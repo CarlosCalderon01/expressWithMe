@@ -7,29 +7,33 @@ const app = express()
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //
 app.use(morgan('dev'))
+app.use(express.json())
+const products = []
 
 app.get('/', (req, res) => {
-  res.send('Pagina Home!')
+  res.json(products)
 })
 
 app.post('/products', (req, res) => {
-  res.send('Pagina')
+  // console.log({ ...req.body, id: 3 })
+  products.push({ ...req.body, id: products.length + 1 })
+  res.send('Creando producto')
 })
 
 app.get('/products', (req, res) => {
-  res.send('Pagina')
+  res.send('method get products')
 })
 
 app.put('/products', (req, res) => {
-  res.send('Pagina')
+  res.send('method put products')
 })
 
 app.delete('/products', (req, res) => {
-  res.send('Pagina')
+  res.send('method delete products')
 })
 
 app.get('/products/:id', (req, res) => {
-  res.send('obtiene un producto')
+  res.send('method get products:id')
 })
 
 // ----- // ----- // ----- // ----- // ----- // ----- // ----- // ----- //

@@ -15,6 +15,12 @@ Instalacion de dependencias:
     - 
     producction:
 
+Generacion de modelos con
+    - npm install -g sequelize-cli (Recomiendo instalacion global)
+    - sequelize init
+    Generar modelo:
+    - npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
 
 Bibliografia:
 
