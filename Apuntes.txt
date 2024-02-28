@@ -17,10 +17,12 @@ Instalacion de dependencias:
 
 Generacion de modelos con
     - npm install -g sequelize-cli (Recomiendo instalacion global)
+    - npm install mysql2 (agregar al excel)
     - sequelize init
     Generar modelo:
-    - npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
-
+    - npx sequelize-cli model:generate --name movie --attributes firstName:string,lastName:string,email:string
+    Migrar modelos:
+    - sequelize db:migrate
 
 Bibliografia:
 
