@@ -24,6 +24,20 @@ Generacion de modelos con
     Migrar modelos:
     - sequelize db:migrate
 
+Modulos:
+    CommonJs Para versiones menores de 13 node
+        // Importar en CommonJS
+            const modulo = require('./modulo');
+        // Exportar en CommonJS
+            module.exports = { algo: 'algo' };
+
+    ESM utiliza
+        // Importar en ESM
+            import modulo from './modulo';
+        // Exportar en ESM
+            export const algo = 'algo';
+
+
 Bibliografia:
 
     https://github.com/CarlosCalderon01/MyAppLB
