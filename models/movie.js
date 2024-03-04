@@ -1,4 +1,3 @@
-// Advertencia no se puede usar ESM para importar modelos, solo commonJS
 'use strict'
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
@@ -22,29 +21,18 @@ module.exports = (sequelize, DataTypes) => {
   return movie
 }
 
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-
 /*
-  - Apuntes:
+  - Notes:
 
-    - Existen dos maneras de construir un modelo en express.
+    - There are two ways to build a model in "express":
 
-      {
-        Calling sequelize.define(modelName, attributes, options)
-
-        Extending Model and calling init(attributes, options)
-      }
+      - Calling sequelize.define(modelName, attributes, options)
+      - Extending Model and calling init(attributes, options)
 */
 
 /*
-  - Biliografia:
+  - Bibliography:
 
     - https://sequelize.org/docs/v6/core-concepts/model-basics/
 
 */
-
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
