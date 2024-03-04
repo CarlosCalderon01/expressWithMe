@@ -1,17 +1,6 @@
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-// ----- // ----- // ----- // ----- // ----- // ----- // ----- //
-
-/*
-  MODELS - MOVIE
-    Use METHOD -->
-      Calling sequelize.define(modelName, attributes, options)
-*/
-
+// Advertencia no se puede usar ESM para importar modelos, solo commonJS
 'use strict'
-const {
-  Model
-} = require('sequelize')
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class movie extends Model {
     /**
@@ -24,9 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   movie.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING
+    title: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'movie'

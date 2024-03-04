@@ -20,7 +20,7 @@ Generacion de modelos con
     - npm install mysql2 (agregar al excel)
     - sequelize init
     Generar modelo:
-    - npx sequelize-cli model:generate --name movie --attributes firstName:string,lastName:string,email:string
+    - npx sequelize-cli model:generate --name movie --attributes title:string,description:string
     Migrar modelos:
     - sequelize db:migrate
 
@@ -54,3 +54,15 @@ Request --> Peticion
 Response --> Respuesta
 
 // ----- // ----- // ----- // ----- // ----- // ----- //
+
+list de dependencias
+
+npm install express // (install framework)
+npm install sequelize // (install ORM)
+npm install pg // (install Controller)
+
+
+que debo de hacer ahora?
+- ya instale las dependencias.
+- ya configure el sequelize.
+- ya extrage el modelo.

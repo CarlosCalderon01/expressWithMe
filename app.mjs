@@ -1,41 +1,24 @@
-// app.mjs
-import express from 'express';
-import morgan from 'morgan';
-import { Sequelize } from 'sequelize';
-import sequelizeConfig from './sequelize-config.js';  // Ajusta la ruta según tu estructura
-import booksRouter from './routes/PathBooks.js'
+import express from 'express'
+import { sequelize } from './config/sequelize.js'
+// const sequelize = require('./config/sequelize.js')
 
-// Obtén el entorno de ejecución
-const environment = process.env.NODE_ENV || 'development';
+const app = express()
 
-// Obtén las configuraciones de Sequelize según el entorno
-const config = sequelizeConfig(environment);
+sequelize
+  .sync()
+  .then(() => {
+    console.log('Conexión exitosa con la base de datos.')
+  })
+  .catch((error) => {
+    console.error('Error de conexión con la base de datos:', error)
+  })
 
-// Inicializa Sequelize con las configuraciones
-const sequelize = new Sequelize(config);
+// Resto de tu configuración de Express...
 
-// Crea la aplicación Express
-const app = express();
+/*
 
-// Middleware de logging
-app.use(morgan('dev'));
+const express = require('express')
+const sequelize = require('./config/sequelize') // Ruta correcta a tu archivo sequelize.js
+const User = require('./models/user.model') // Ruta correcta a tu modelo de usuario
 
-// Middleware para parsear JSON
-app.use(express.json());
-
-// Middleware para manejar rutas de libros
-app.use(booksRouter);
-
-// Ruta de inicio
-app.get('/', (req, res) => {
-  res.json('Page Home!');
-});
-
-// Puerto de escucha
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Escuchando en el puerto ${PORT}`);
-});
-
-// Ejemplo de uso de create
+*/
