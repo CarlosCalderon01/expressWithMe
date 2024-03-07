@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 /* - DEPENDENCIES: LOCAL - */
 // const sequelize = require('./config/dbConfig.cjs')
-const viewMovieRoutes = require('./view/viewMovie.cjs')
+const viewMovieRoutes = require('./src/view/viewMovie.cjs')
 // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- //
 const app = express()
 const PORT = 3000

@@ -2,7 +2,7 @@
 'use strict'
 const { Model, DataTypes } = require('sequelize')
 /* - DEPENDENCIES: LOCAL - */
-const sequelize = require('../config/dbConfig.cjs')
+const sequelize = require('../../config/dbConfig.cjs')
 
 class Movie extends Model {
   static associate (models) {
