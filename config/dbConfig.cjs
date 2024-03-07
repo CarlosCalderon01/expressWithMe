@@ -1,16 +1,15 @@
-const { Sequelize } = require('sequelize')
+const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize({
+const sequelize = new Sequelize('dbLWM', 'postgres', '2956939xD', {
+  host: 'localhost',
   dialect: 'postgres',
-  host: '127.0.0.1',
-  username: 'postgres',
-  password: '2956939xD',
-  database: 'dbLWM'
+  logging: console.log
 })
 
 module.exports = sequelize
 
 /*
+  - Connecting to a database
 
   - Notes:
 
