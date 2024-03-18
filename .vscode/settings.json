@@ -20,8 +20,21 @@
     },
     "peacock.color": "#215732",
     "cSpell.words": [
+        "Chek",
+        "Countrys",
+        "fkey",
+        "gmtcountry",
+        "gmtgender",
         "hstore",
+        "keyletter",
         "miapilwm",
-        "myapplb"
+        "myapplb",
+        "nextval",
+        "pkey",
+        "regclass",
+        "sequelize",
+        "SMALLSERIAL",
+        "TABLESPACE",
+        "TINYINT"
     ]
 }
