@@ -21,7 +21,7 @@ MGmtCountry.init({
 }, {
   sequelize,
   modelName: 'MGmtCountry',
-  tableName: 'GmtCountry',
+  tableName: 'GmtCountrys',
   timestamps: false
 })
 
